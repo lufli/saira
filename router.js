@@ -1,5 +1,6 @@
 const Authentication = require('./controllers/authentication');
 const Dish = require('./controllers/dish');
+const User = require('./controllers/user');
 const passportService = require('./services/passport');
 const passport = require('passport');
 
@@ -18,4 +19,9 @@ module.exports = function(app) {
   app.post('/dish/create', requireAuth, Dish.create);
   app.post('/dish/delete/:id', requireAuth, Dish.delete);
 
+  app.get('/user/:email',requireAuth,User.findByEmail);
+  app.get('/user',User.listAll);
+  app.post('/user/update',requireAuth,User.updateInfo);
+  app.post('/user/favo/update',requireAuth,User.updateFavorite);
+  
 };

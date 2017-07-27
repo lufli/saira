@@ -4,7 +4,8 @@
   "description": "A RESTful Api for our SaaS application.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "cors": "^2.8.4",
     "express": "^4.15.3",
     "jwt-simple": "^0.5.1",
+    "lodash": "^4.17.4",
     "mongoose": "^4.11.4",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
