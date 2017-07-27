@@ -17,5 +17,5 @@ module.exports = function(app) {
   app.get('/dish/show', requireAuth, Dish.show);
   app.post('/dish/create', requireAuth, Dish.create);
   app.post('/dish/delete/:id', requireAuth, Dish.delete);
-  
+
 };
