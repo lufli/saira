@@ -17,7 +17,9 @@ module.exports = function(app) {
   // dish
   app.get('/dish/show', requireAuth, Dish.show);
   app.post('/dish/create', requireAuth, Dish.create);
-  app.post('/dish/delete/:id', requireAuth, Dish.delete);
+  app.put('/dish/:id', requireAuth, Dish.update);
+  app.delete('/dish/:id', requireAuth, Dish.delete);
+  app.get('/dish/search/:id', requireAuth, Dish.searchById);
 
   app.get('/user/:email',requireAuth,User.findByEmail);
   app.get('/user',User.listAll);

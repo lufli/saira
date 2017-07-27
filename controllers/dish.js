@@ -8,7 +8,7 @@ exports.show = function(req, res, next) {
     res.json({ dishes });
   });
 };
-// create a dish
+// create a dish, this method is for CHEF only
 exports.create = function(req, res, next) {
   var dishModel = new Dish();
   dishModel.name = req.body.name;
@@ -30,10 +30,33 @@ exports.create = function(req, res, next) {
 
   });
 };
-// delete a dish
+// delete a dish, this method is only for CHEF group
 exports.delete = function(req, res, next) {
-  
+  Dish.findOne( { _id: req.params.id } , function(err, dish) {
+    if (err) { return next(err); }
+    if (!dish) res.status(422).send({ message: 'item not exist' });
+    User.update( { _id: req.user._id }, { $pullAll: { dish: [req.params.id] }}, function(err) {
+      if (err) { return next(err); }
+    })
+  });
+  User.findOne({ _id: req.user._id }, function(err, user) {
+    if (err) { return next(err); }
+    res.json({ user });
+  })
 };
 // update a dish
+exports.update = function(req, res, next) {
 
+  Dish.findOneAndUpdate({ _id: req.params.id }, { $set: req.body.dish }, { new: true }, function(err, dish) {
+    if (err) { return next(err); }
+    
+    res.json({ dish });
+  });
+}
 // search...
+exports.searchById = function(req, res, next) {
+  Dish.findOne({ _id: req.params.id }, function(err, dish) {
+    if (err) { return next(err); }
+    res.json({ dish });
+  })
+}
