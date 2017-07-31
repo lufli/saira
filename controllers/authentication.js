@@ -9,6 +9,7 @@ function tokenForUser(user) {
 
 exports.signin = function(req, res, next) {
   res.send({ token: tokenForUser(req.user) });
+  res.set('authorization',tokenForUser(req.user));
 }
 
 exports.signup = function(req, res, next) {
@@ -38,7 +39,7 @@ exports.signup = function(req, res, next) {
       if (err) { return next(err); }
 
       // respond to request
-      res.json({ token: tokenForUser(user) });
+      res.send({ token: tokenForUser(user) });
     });
   });
 }
