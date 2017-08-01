@@ -9,6 +9,14 @@ const userSchema = new Schema({
   role: { type: String, required: true, enum: [ 'USER', 'CHEF', 'ADMIN' ], default: 'USER' },
   createdAt: { type: Date, required: true, default: Date.now },
   phone: { type: String },
+  // address
+  location: {
+    address: { type: String },
+    geo: {
+      lat: { type: Number },
+      lng: { type: Number }
+    }
+  },
   // only USER have following and favorite
   following: [ {type: Schema.Types.ObjectId, ref: 'user'} ],
   favorite: [ {type: Schema.Types.ObjectId, ref: 'dish'} ],
