@@ -20,10 +20,11 @@ module.exports = function(app) {
   app.put('/dish/:id', requireAuth, Dish.update);
   app.delete('/dish/:id', requireAuth, Dish.delete);
   app.get('/dish/search/:id', requireAuth, Dish.searchById);
-  
+  app.post('/dish/search',Dish.searchByLocation);
+
+  //user
   app.get('/user/:email',requireAuth,User.findByEmail);
   app.get('/user',User.listAll);
   app.post('/user/update',requireAuth,User.updateInfo);
   app.post('/user/favo/update',requireAuth,User.updateFavorite);
-  
 };
