@@ -1,0 +1,38 @@
+{
+  "name": "saira",
+  "version": "1.0.0",
+  "description": "A RESTful Api for our SaaS application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lufli/saira.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lufli/saira/issues"
+  },
+  "homepage": "https://github.com/lufli/saira#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.3",
+    "jwt-simple": "^0.5.1",
+    "lodash": "^4.17.4",
+    "material-ui": "^0.18.7",
+    "mongoose": "^4.11.4",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
+    "react-tap-event-plugin": "^2.0.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.8.2",
+    "nodemon": "^1.11.0"
+  }
+}
