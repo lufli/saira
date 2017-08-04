@@ -11,6 +11,7 @@ exports.show = function(req, res, next) {
 };
 // create a dish, this method is for CHEF only
 exports.create = function(req, res, next) {
+  console.log(req.user);
   var dishModel = new Dish();
   dishModel.name = req.body.name;
   dishModel.description = req.body.description;

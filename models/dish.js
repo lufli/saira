@@ -6,7 +6,7 @@ const dishSchema = new Schema({
   description: { type: String },
   price: { type: Number, required: true },
   location: {
-    address: { type: String, required:true},
+    address: { type: String, required:false},
     geo: {
       lat: { type: Number },
       lng: { type: Number }
